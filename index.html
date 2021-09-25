@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Web Auto Play Audio</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="images/favicon.ico" />
+
+    <!-- Call Jquery -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Call Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="uk-container container-shadow">
+    <h1 class="uk-tile uk-text-center">Web Auto Play Audio</h1>
+    <div class="uk-section">
+        <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+            <div><a id="audioOne" class="uk-button uk-button-default" href="#">Sound 1</a></div>
+            <div><a id="audioTwo" class="uk-button uk-button-default" href="#">Sound 2</a></div>
+            <div><a id="audioTree" class="uk-button uk-button-default" href="#">Sound 3</a></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div id="modalaudio" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title uk-text-center">Wellcome</h2>
+        <p>To improve the experience of our users, our site has audio </p>
+        <p class="uk-text-center">
+            <button id="accept" class="uk-button uk-button-default uk-modal-close" type="button">OK</button>
+        </p>
+    </div>
+</div>
+
+<!-- List of audios -->
+<audio id="audioAccess" preload="auto">
+    <source src="audio/wellcome.mp3">
+</audio>
+<audio id="buttonOne" preload="auto">
+    <source src="audio/button1.mp3">
+</audio>
+<audio id="buttonTwo" preload="auto">
+    <source src="audio/button2.mp3">
+</audio>
+<audio id="buttonTree" preload="auto">
+    <source src="audio/button3.mp3">
+</audio>
+
+<script>
+    window.onload = function() {
+        var modal = UIkit.modal("#modalaudio");
+        modal.show();
+    };
+
+    // Define audio elements
+    var audioAccess = document.getElementById("audioAccess");
+    var buttonOne = document.getElementById("buttonOne");
+    var buttonTwo = document.getElementById("buttonTwo");
+    var buttonTree = document.getElementById("buttonTree");
+
+
+    // Button Actions
+    document.getElementById("accept").onclick = function(){
+        audioAccess.currentTime = 0;
+        audioAccess.play();
+    }
+    document.getElementById("audioOne").onmouseenter = function(){
+        buttonOne.currentTime = 0;
+        buttonOne.play();
+    }
+    document.getElementById("audioTwo").onmouseenter = function(){
+        buttonTwo.currentTime = 0;
+        buttonTwo.play();
+    }
+    document.getElementById("audioTree").onmouseenter = function(){
+        buttonTree.currentTime = 0;
+        buttonTree.play();
+    }
+
+
+</script>
+
+</body>
+</html>
